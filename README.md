@@ -9,7 +9,7 @@ A fully responsive web application where users can **search**, **discover**, **a
 
 🌐 **Frontend** (Client-side): [View Demo](https://your-frontend-demo-link.com)
 
-🌐 **Backend** (Server-side): [Backend API](https://your-backend-api-link.com)
+🌐 **Backend** (Server-side): [Backend API](https://github.com/nandhinigurumoorthyy/IMDb-Clone-Backend.git)
 
 
 ---
