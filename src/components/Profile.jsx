@@ -19,7 +19,7 @@ const Profile = () => {
   const fetchMovies = async () => {
     setLoading(true);
     try {
-      const { data } = await axios.get(`http://localhost:10000/api/user-movies/${userid}`);
+      const { data } = await axios.get(`https://imdb-clone-backend-wx59.onrender.com/api/user-movies/${userid}`);
       setMovies(data);
     } catch (error) {
       console.error("Error fetching user movies:", error);
@@ -66,7 +66,7 @@ const Profile = () => {
   const handleEditSubmit = async (e, movieId) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:10000/api/movies/${movieId}`, editedMovie);
+      await axios.put(`https://imdb-clone-backend-wx59.onrender.com/api/movies/${movieId}`, editedMovie);
       await fetchMovies();
       setEditingMovieId(null);
       alert("Movie updated successfully!!👍🏻");
@@ -80,7 +80,7 @@ const Profile = () => {
   const handleDelete = async (movieId) => {
     if (window.confirm("Are you sure you want to delete this movie?")) {
       try {
-        await axios.delete(`http://localhost:10000/api/movies/${movieId}`);
+        await axios.delete(`https://imdb-clone-backend-wx59.onrender.com/api/movies/${movieId}`);
         await fetchMovies();
         alert("Movie deleted successfully!👍🏻");
       } catch (error) {
