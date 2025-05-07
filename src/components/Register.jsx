@@ -19,7 +19,7 @@ const Register = () => {
         password,
       })
       .then((res) => {
-        navigate("/login");
+        navigate("/");
       })
       .catch((error) => {
         navigate("/error", {
