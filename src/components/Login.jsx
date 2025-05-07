@@ -12,7 +12,7 @@ const Login = () => {
     e.preventDefault();
 
     axios
-      .post("https://imdb-clone-backend-wx59.onrender.com/", {
+      .post("https://imdb-clone-backend-o1bt.onrender.com/", {
         email,
         password,
       })
