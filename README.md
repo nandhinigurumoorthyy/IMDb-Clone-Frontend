@@ -163,7 +163,7 @@ client/
 
 # 📖 License
 
-MIT License © [Your Name](https://github.com/your-username)
+MIT License © [Nandhini](https://github.com/nandhinigurumoorthyy)
 
 ---
 
