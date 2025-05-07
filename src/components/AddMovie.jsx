@@ -27,7 +27,7 @@ const AddMovie = () => {
     const moviePayload = { ...movieData, userId };
 
     try {
-      await axios.post("http://localhost:10000/createnewmovie", moviePayload);
+      await axios.post("https://imdb-clone-backend-wx59.onrender.com/createnewmovie", moviePayload);
       alert("Success!! Your movie has been added. Head to your profile to edit or update it anytime..💖");
       setMovieData({
         title: "",
