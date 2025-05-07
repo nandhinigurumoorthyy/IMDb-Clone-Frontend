@@ -13,7 +13,7 @@ const Register = () => {
     e.preventDefault();
 
     axios
-      .post("http://localhost:10000/reg", {
+      .post("https://imdb-clone-backend-wx59.onrender.com/reg", {
         username,
         email,
         password,
