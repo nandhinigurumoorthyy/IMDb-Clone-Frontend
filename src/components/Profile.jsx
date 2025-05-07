@@ -35,7 +35,7 @@ const Profile = () => {
   // Handle logout
   const handleLogout = () => {
     localStorage.clear();
-    navigate("/login");
+    navigate("/");
   };
 
   // Open edit form
