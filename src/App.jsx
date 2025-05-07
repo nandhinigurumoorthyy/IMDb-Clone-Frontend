@@ -16,7 +16,7 @@ function App() {
         <Routes>
         <Route path="/home" element={<HomePage />} />
           <Route path="/reg" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Login />} />
           <Route path="/error" element={<Error />} />
           <Route path="/search/:query" element={<MovieContainer />} />
           <Route path="/moviedetails/:id" element={<SeeMore />} />
