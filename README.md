@@ -7,7 +7,7 @@ A fully responsive web application where users can **search**, **discover**, **a
 ## 🚀 Demo
 
 
-🌐 **Frontend** (Client-side): [View Demo](https://your-frontend-demo-link.com)
+🌐 **Frontend** (Client-side): [View Demo](https://imdb-clone-ui.netlify.app)
 
 🌐 **Backend** (Server-side): [Backend API](https://github.com/nandhinigurumoorthyy/IMDb-Clone-Backend.git)
 
@@ -137,10 +137,8 @@ client/
  ├── public/
  ├── src/
  │    ├── components/
- │    ├── pages/
  │    ├── assets/
- │    ├── App.js
- │    ├── index.js
+ │    ├── App.jsx
  │    └── ...
  ├── package.json
  ├── README.md
@@ -158,12 +156,6 @@ client/
 * Axios
 * React Router DOM
 * TMDB API (for movies)
-
----
-
-# 📖 License
-
-MIT License © [Nandhini](https://github.com/nandhinigurumoorthyy)
 
 ---
 
