@@ -15,7 +15,7 @@ const SeeMore = () => {
       try {
         if (id.length === 24) {
           // 🔥 It's a MongoDB ID (24 characters)
-          const { data: movieData } = await axios.get(`https://imdb-clone-backend-wx59.onrender.com/moviedetails/${id}`);
+          const { data: movieData } = await axios.get(`https://imdb-clone-backend-o1bt.onrender.com/moviedetails/${id}`);
           setDetails(movieData);
           setCredits(null); // No credits for MongoDB
         } else {
