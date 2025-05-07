@@ -26,7 +26,7 @@ const MovieContainer = () => {
         console.log("TMDB Results:", tmdbResponse.data.results);
 
         const mongoResponse = await axios.get(
-          `http://localhost:10000/movies?query=${query}`
+          `https://imdb-clone-backend-o1bt.onrender.com/movies?query=${query}`
         );
         setMongoFilms(mongoResponse.data.data || []); 
         console.log("MongoDB Results:", mongoResponse.data.data);
