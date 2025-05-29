@@ -20,31 +20,26 @@ useEffect(() => {
     setLoading(true);
     try {
       let tmdbResponse;
-
       if (query && query.trim()) {
-        // Search movies if query is provided
-        tmdbResponse = await axios.get(
-          `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(query.trim())}&api_key=d4b4a1d5d71f6dcff27a1e5652668119`
-        );
+        tmdbResponse = await axios.get(`https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(query.trim())}&api_key=d4b4a1d5d71f6dcff27a1e5652668119`);
       } else {
-        // Fetch trending movies if no query
-        tmdbResponse = await axios.get(
-          `https://api.themoviedb.org/3/trending/movie/day?api_key=d4b4a1d5d71f6dcff27a1e5652668119`
-        );
+        tmdbResponse = await axios.get(`https://api.themoviedb.org/3/trending/movie/day?api_key=d4b4a1d5d71f6dcff27a1e5652668119`);
       }
-
       setTmdbFilms(tmdbResponse.data.results || []);
       console.log("TMDB Results:", tmdbResponse.data.results);
 
-      // Mongo query if you still want to support it
-      const mongoResponse = await axios.get(
-        `https://imdb-clone-backend-o1bt.onrender.com/movies?query=${query || ""}`
-      );
-      setMongoFilms(mongoResponse.data.data || []);
-      console.log("MongoDB Results:", mongoResponse.data.data);
+      // MongoDB Fetch: Only if query is valid
+      let mongoResponse;
+      if (query && query.trim()) {
+        mongoResponse = await axios.get(`https://imdb-clone-backend-o1bt.onrender.com/movies?query=${query}`);
+        setMongoFilms(mongoResponse.data.data || []);
+        console.log("MongoDB Results:", mongoResponse.data.data);
+      } else {
+        setMongoFilms([]); // Clear Mongo results if no query
+      }
 
     } catch (error) {
-      alert("Error fetching movie data!");
+      alert("Error fetching movie data! Please check your backend server.");
       console.error(error);
     } finally {
       setLoading(false);
@@ -53,6 +48,7 @@ useEffect(() => {
 
   fetchMovies();
 }, [query]);
+
 
 
   useEffect(() => {

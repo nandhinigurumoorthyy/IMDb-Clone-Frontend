@@ -73,10 +73,10 @@ const SeeMore = () => {
           <p className="overview">{details.overview}</p>
 
           <p><strong>Genre:</strong> {genres ||details.genre || details.media_type}</p>
-          <p><strong>Language:</strong> {details.original_language?.toUpperCase() || "N/A"|| details.lang}</p>
-          <p><strong>Actors:</strong> {actors || "N/A" || details.actors}</p>
-          <p><strong>Producers:</strong> {producers || "N/A" || details.producers}</p>
-          <p><strong>Rating:</strong> {details.vote_average || "N/A" || vote}</p>
+          <p><strong>Language:</strong> {details.original_language|| details.lang || "N/A"}</p>
+          <p><strong>Actors:</strong> {actors || details.actors  || "N/A"}</p>
+          <p><strong>Producers:</strong> {producers || details.producers  || "N/A"}</p>
+          <p><strong>Rating:</strong> {details.vote_average || details.vote|| "N/A"}</p>
         </div>
       </div>
     </div>
