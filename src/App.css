@@ -41,7 +41,7 @@ html, body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #d9dbdc;
   margin: 0 auto;     
   max-width: 100%;
@@ -1168,4 +1168,46 @@ input, textarea {
 .error-gif {
   max-width: 90%;
   height: auto;
+}
+
+/* For tablets (medium screens) */
+@media (max-width: 1023px) and (min-width: 601px) {
+  .container {
+    flex-direction: row;
+    padding: 40px 60px;
+  }
+
+  .title img.logo {
+    width: 150px;
+  }
+
+  .title p {
+    font-size: 18px;
+  }
+}
+
+/* For mobile devices (small screens) */
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .title, .login-box {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .title img.logo {
+    width: 120px;
+  }
+
+  .title p {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .login-box {
+    padding: 20px;
+  }
 }

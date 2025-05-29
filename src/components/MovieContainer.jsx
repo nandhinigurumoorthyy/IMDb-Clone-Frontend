@@ -15,31 +15,45 @@ const MovieContainer = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchMovies = async () => {
-      setLoading(true);
-      try {
-        const tmdbResponse = await axios.get(
-          `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=d4b4a1d5d71f6dcff27a1e5652668119`
-        );
-        setTmdbFilms(tmdbResponse.data.results || []);
-        console.log("TMDB Results:", tmdbResponse.data.results);
+useEffect(() => {
+  const fetchMovies = async () => {
+    setLoading(true);
+    try {
+      let tmdbResponse;
 
-        const mongoResponse = await axios.get(
-          `https://imdb-clone-backend-o1bt.onrender.com/movies?query=${query}`
+      if (query && query.trim()) {
+        // Search movies if query is provided
+        tmdbResponse = await axios.get(
+          `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(query.trim())}&api_key=d4b4a1d5d71f6dcff27a1e5652668119`
         );
-        setMongoFilms(mongoResponse.data.data || []); 
-        console.log("MongoDB Results:", mongoResponse.data.data);
-      } catch (error) {
-        alert("Error fetching movie data!");
-        console.error(error);
-      } finally {
-        setLoading(false);
+      } else {
+        // Fetch trending movies if no query
+        tmdbResponse = await axios.get(
+          `https://api.themoviedb.org/3/trending/movie/day?api_key=d4b4a1d5d71f6dcff27a1e5652668119`
+        );
       }
-    };
 
-    fetchMovies();
-  }, [query]);
+      setTmdbFilms(tmdbResponse.data.results || []);
+      console.log("TMDB Results:", tmdbResponse.data.results);
+
+      // Mongo query if you still want to support it
+      const mongoResponse = await axios.get(
+        `https://imdb-clone-backend-o1bt.onrender.com/movies?query=${query || ""}`
+      );
+      setMongoFilms(mongoResponse.data.data || []);
+      console.log("MongoDB Results:", mongoResponse.data.data);
+
+    } catch (error) {
+      alert("Error fetching movie data!");
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchMovies();
+}, [query]);
+
 
   useEffect(() => {
     const combinedFilms = [...tmdbFilms, ...mongoFilms];
@@ -109,9 +123,9 @@ const MovieContainer = () => {
                   </p>
 
                   {/* Vote Average (only for TMDB movies) */}
-                  {movie.vote_average && (
+                  {(movie.vote_average || movie.vote) && (
                     <p className="movie-vote">
-                      Vote: {Math.round(movie.vote_average * 10)}%
+                      Rating: {Math.round(movie.vote_average) || Math.round(movie.vote)}
                     </p>
                   )}
 

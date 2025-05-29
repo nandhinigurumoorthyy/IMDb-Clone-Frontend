@@ -15,6 +15,7 @@ const AddMovie = () => {
     producers: "",
     photolink: "",
     vote: "",
+    lang:""
   });
     const navigate = useNavigate();
   
@@ -38,6 +39,7 @@ const AddMovie = () => {
         producers: "",
         photolink: "",
         vote: "",
+        lang:""
       });
       navigate("/home");
     } catch (err) {
@@ -55,6 +57,7 @@ const AddMovie = () => {
           <input
             type="text"
             value={movieData.title}
+            placeholder="GBU"
             onChange={(e) =>
               setMovieData({ ...movieData, title: e.target.value })
             }
@@ -78,6 +81,7 @@ const AddMovie = () => {
           <label>Genre</label>
           <input
             type="text"
+            placeholder="Comedy"
             value={movieData.genre}
             onChange={(e) =>
               setMovieData({ ...movieData, genre: e.target.value })
@@ -86,9 +90,23 @@ const AddMovie = () => {
           />
         </div>
 
+      <div className="input-group">
+          <label>Language</label>
+          <input
+            type="text"
+            value={movieData.lang}
+            placeholder="Tamil"
+            onChange={(e) =>
+              setMovieData({ ...movieData, lang: e.target.value })
+            }
+            required
+          />
+        </div>
+
         <div className="input-group">
           <label>Overview</label>
           <textarea
+          placeholder="A former gangster is reformed...."
             value={movieData.overview}
             onChange={(e) =>
               setMovieData({ ...movieData, overview: e.target.value })
@@ -134,10 +152,11 @@ const AddMovie = () => {
           />
         </div>
         <div className="input-group">
-          <label>Vote</label>
+          <label>Rating</label>
           <input
             type="number"
-            placeholder="89"
+            placeholder="9"
+            max="10" min="1"
             onChange={(e) =>
               setMovieData({ ...movieData, vote: e.target.value })
             }

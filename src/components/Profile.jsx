@@ -50,6 +50,7 @@ const Profile = () => {
       producers: movie.producers,
       photolink: movie.photolink,
       vote: movie.vote,
+      lang:movie.lang
     });
   };
 
@@ -145,6 +146,14 @@ const Profile = () => {
                         value={editedMovie.genre}
                         onChange={handleEditChange}
                         placeholder="Genre"
+                        required
+                      />
+                       <input
+                        type="text"
+                        name="lang"
+                        value={editedMovie.lang}
+                        onChange={handleEditChange}
+                        placeholder="Language"
                         required
                       />
                       <textarea
