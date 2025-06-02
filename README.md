@@ -6,11 +6,14 @@ A fully responsive web application where users can **search**, **discover**, **a
 
 ## 🚀 Demo
 
+* 🌐 **Frontend (Client-side)**: [View Demo](https://imdb-clone-ui.netlify.app)
+* 🌐 **Backend (Server-side)**: [Backend API](https://imdb-clone-backend-o1bt.onrender.com)
 
-🌐 **Frontend** (Client-side): [View Demo](https://imdb-clone-ui.netlify.app)
+---
 
-🌐 **Backend** (Server-side): [Backend API](https://github.com/nandhinigurumoorthyy/IMDb-Clone-Backend.git)
+## 🗂️ Repository Links
 
+* **Backend Repository**: [IMDb-Clone Server-side](https://github.com/nandhinigurumoorthyy/IMDb-Clone-Backend.git)
 
 ---
 
